@@ -27,7 +27,7 @@ class HttpClient: HttpClientProtocol {
         alamofireSession.request(url, method: .get).responseDecodable(of: T.self) { data in
             
             guard let data = data.value else {
-                print("error")
+                return print("error")
             }
             completion(.success(data))
         }

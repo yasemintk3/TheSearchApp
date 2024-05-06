@@ -10,11 +10,11 @@ import Foundation
 // MARK: - Search
 struct Search: Codable {
     let resultCount: Int?
-    let results: [Result]?
+    let results: [SearchResult]?
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct SearchResult: Codable {
     let wrapperType: WrapperType?
     let kind: Kind?
     let collectionID, trackID: Int?
