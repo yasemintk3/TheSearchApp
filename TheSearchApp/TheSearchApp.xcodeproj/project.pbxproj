@@ -28,6 +28,7 @@
 		475BA7CB2BE95840007C57A7 /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475BA7CA2BE95840007C57A7 /* SearchCellViewModel.swift */; };
 		475BA7CE2BE968DE007C57A7 /* Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475BA7CD2BE968DE007C57A7 /* Reuseable.swift */; };
 		475BA7D02BE9696A007C57A7 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475BA7CF2BE9696A007C57A7 /* UICollectionViewCell.swift */; };
+		475BA7D22BF54F27007C57A7 /* SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475BA7D12BF54F27007C57A7 /* SearchBarDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		475BA7CA2BE95840007C57A7 /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
 		475BA7CD2BE968DE007C57A7 /* Reuseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reuseable.swift; sourceTree = "<group>"; };
 		475BA7CF2BE9696A007C57A7 /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
+		475BA7D12BF54F27007C57A7 /* SearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 		475BA7C02BE8191B007C57A7 /* SearchBarDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				475BA7D12BF54F27007C57A7 /* SearchBarDelegate.swift */,
 			);
 			path = SearchBarDelegate;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			files = (
 				475BA7CE2BE968DE007C57A7 /* Reuseable.swift in Sources */,
 				475BA7AE2BE80DF8007C57A7 /* AppCoordinator.swift in Sources */,
+				475BA7D22BF54F27007C57A7 /* SearchBarDelegate.swift in Sources */,
 				475BA7BF2BE818FA007C57A7 /* SearchDataSource.swift in Sources */,
 				475BA7832BE809AF007C57A7 /* AppDelegate.swift in Sources */,
 				475BA7BD2BE818E8007C57A7 /* SearchDelegate.swift in Sources */,

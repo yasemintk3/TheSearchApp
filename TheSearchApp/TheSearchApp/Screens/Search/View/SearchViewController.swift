@@ -102,6 +102,21 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: SearchViewModelOutput {
-    func updateView(list: [SearchResult]) {
+    
+    func updateView(state: SearchListViewModelState) {
+        switch state {
+        case .showSearchList(let searchCellViewModel):
+            delegate?.update(cellViewModel: searchCellViewModel)
+            dataSource?.update(cellViewModel: searchCellViewModel)
+            collectionView.reloadData()
+        case .showError(let error):
+            print(error.localizedDescription)
+        }
+    }
+}
+
+extension SearchViewController: SearchBarDelegateOutput {
+    func searchTapped(searchKey: String) {
+        viewModel?.getSearchList(searchKey: searchKey)
     }
 }

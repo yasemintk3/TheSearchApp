@@ -7,8 +7,13 @@
 
 import Foundation
 
+enum SearchListViewModelState {
+    case showSearchList(SearchCellViewModel)
+    case showError(Error)
+}
+
 protocol SearchViewModelOutput: AnyObject {
-    func updateView(list: [SearchResult])
+    func updateView(state: SearchListViewModelState)
 }
 
 protocol SearchViewModelProtocol {
@@ -21,6 +26,7 @@ final class SearchViewModel: SearchViewModelProtocol {
     var httpClient: HttpClientProtocol?
     var appCoordinator: AppCoordinator?
     var output: SearchViewModelOutput?
+    private var searchResult: [SearchResult] = []
     
     init(httpClient: HttpClientProtocol, appCoordinator: AppCoordinator) {
         self.httpClient = httpClient
@@ -36,7 +42,9 @@ final class SearchViewModel: SearchViewModelProtocol {
                 guard let list = response.results else {
                     return print("error")
                 }
-                self.output?.updateView(list: list)
+                self.searchResult = list
+                let viewModel = SearchCellViewModel(result: self.searchResult, isSearch: false)
+                self.output?.updateView(state: .showSearchList(viewModel))
             case .failure(let error):
                 return print(error.localizedDescription)
             }
