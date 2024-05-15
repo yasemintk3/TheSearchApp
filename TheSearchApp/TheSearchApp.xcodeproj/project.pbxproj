@@ -95,6 +95,7 @@
 				475BA7A02BE80CC0007C57A7 /* Network */,
 				475BA7A12BE80CCC007C57A7 /* Screens */,
 				475BA79E2BE80C48007C57A7 /* Resources */,
+				475BA7902BE809B3007C57A7 /* Info.plist */,
 			);
 			path = TheSearchApp;
 			sourceTree = "<group>";
@@ -121,7 +122,6 @@
 			children = (
 				475BA78B2BE809B3007C57A7 /* Assets.xcassets */,
 				475BA78D2BE809B3007C57A7 /* LaunchScreen.storyboard */,
-				475BA7902BE809B3007C57A7 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
