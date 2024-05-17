@@ -23,7 +23,7 @@ class SearchBarDelegate: NSObject {
 extension SearchBarDelegate: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+    
         guard let searchKey = searchBar.text else { return }
         
         output?.searchTapped(searchKey: searchKey)

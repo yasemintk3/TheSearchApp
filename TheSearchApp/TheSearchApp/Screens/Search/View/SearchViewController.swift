@@ -10,6 +10,10 @@ import SnapKit
 
 class SearchViewController: UIViewController {
     
+    private enum Constant {
+        static let searchHeight: CGFloat = 40
+    }
+    
     private lazy var searchBar: UISearchController = {
         let search = UISearchController()
         search.searchBar.placeholder = "Search"
@@ -30,6 +34,11 @@ class SearchViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        collectionView.register(
+            SearchCollectionViewCell.self,
+            forCellWithReuseIdentifier: SearchCollectionViewCell.reuseIdentifier
+        )
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
@@ -37,6 +46,7 @@ class SearchViewController: UIViewController {
     private var viewModel: SearchViewModel?
     private var delegate: SearchDelegate?
     private var dataSource: SearchDataSource?
+    private var searchBarDelegate: SearchBarDelegate?
     
     init(viewModel: SearchViewModel,
          delegate: SearchDelegate,
@@ -55,6 +65,9 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel?.output = self
+        searchBarDelegate = SearchBarDelegate(output: self)
+        
         configureUI()
     }
     
@@ -62,19 +75,27 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .white
         self.navigationItem.searchController = searchBar
         
-        configureContraints()
         configureDelegate()
+        configureContraints()
     }
     
     private func configureDelegate() {
         collectionView.delegate = delegate
         collectionView.dataSource = dataSource
+        
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            let sizeCalculator = SearchCellSize(flowLayout: flowLayout, width: UIScreen.main.bounds.size.width)
+            collectionView.contentInset = sizeCalculator.contentInset
+            collectionView.collectionViewLayout = sizeCalculator.getFlowLayout()
+        }
+        
+        searchBar.searchBar.delegate = searchBarDelegate
     }
     
     private func configureContraints() {
         
-        view.addSubview(collectionView)
         view.addSubview(segmentedControl)
+        view.addSubview(collectionView)
         
         segmentedController()
         searchCollection()
@@ -82,17 +103,17 @@ class SearchViewController: UIViewController {
     }
     
     private func segmentedController() {
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+        segmentedControl.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
         }
     }
     
     private func searchCollection() {
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom)
+            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
             make.left.right.equalTo(view.safeAreaLayoutGuide)
-            make.bottom.equalTo(view)
+            make.bottom.equalToSuperview()
         }
     }
 

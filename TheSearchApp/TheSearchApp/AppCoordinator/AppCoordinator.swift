@@ -23,6 +23,6 @@ class AppCoordinator: Coordinator {
     
     func start() {
         let vc = SearchBuilder.build(appCoordinator: self)
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: false)
     }
 }
