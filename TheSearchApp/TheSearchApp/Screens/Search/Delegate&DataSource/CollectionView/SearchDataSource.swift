@@ -30,8 +30,8 @@ extension SearchDataSource: UICollectionViewDataSource {
                 let viewModel = viewModel else { return UICollectionViewCell() }
         
         cell.configure(imageURL: viewModel.getImage(by: indexPath),
-                       collectionPrice: viewModel.getCollectionName(by: indexPath),
-                       collectionName: viewModel.getCollectionPrice(by: indexPath))
+                       collectionName: viewModel.getCollectionName(by: indexPath),
+                       collectionPrice: viewModel.getCollectionPrice(by: indexPath))
         
         return cell
     }

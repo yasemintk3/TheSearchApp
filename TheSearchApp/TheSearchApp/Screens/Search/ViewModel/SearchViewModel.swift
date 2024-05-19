@@ -18,6 +18,7 @@ protocol SearchViewModelOutput: AnyObject {
 
 protocol SearchViewModelProtocol {
     func getSearchList(searchKey: String)
+    func resetSearch()
     var output: SearchViewModelOutput? { get set }
 }
 
@@ -39,15 +40,19 @@ final class SearchViewModel: SearchViewModelProtocol {
             
             switch result {
             case .success(let response):
-                guard let list = response.results else {
+                guard let results = response.results else {
                     return print("error")
                 }
-                self.searchResult = list
-                let viewModel = SearchCellViewModel(result: self.searchResult, isSearch: false)
+                let viewModel = SearchCellViewModel(result: results, isSearch: true)
                 self.output?.updateView(state: .showSearchList(viewModel))
             case .failure(let error):
                 return print(error.localizedDescription)
             }
         })
+    }
+    
+    func resetSearch() {
+        let viewModel = SearchCellViewModel(result: self.searchResult, isSearch: false)
+        output?.updateView(state: .showSearchList(viewModel))
     }
 }

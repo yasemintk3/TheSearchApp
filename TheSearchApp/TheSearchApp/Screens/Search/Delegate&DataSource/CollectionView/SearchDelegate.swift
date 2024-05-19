@@ -24,19 +24,8 @@ extension SearchDelegate: UICollectionViewDelegate, UICollectionViewDelegateFlow
         
         if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
             let size = SearchCellSize(flowLayout: flowLayout,
-                                                width: UIScreen.main.bounds.size.width)
+                                      width: UIScreen.main.bounds.size.width)
             return size.estimatedItemSize
-        }
-        return .zero
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        
-        if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout,
-           isSearchResult ?? false {
-            let size = SearchCellSize(flowLayout: flowLayout,
-                                                width: UIScreen.main.bounds.size.width)
-            return size.headerSize
         }
         return .zero
     }

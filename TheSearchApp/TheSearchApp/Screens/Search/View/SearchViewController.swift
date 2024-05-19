@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
     
     private lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Movies", "Music", "Apps", "Books"])
-        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.selectedSegmentIndex = UISegmentedControl.noSegment
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
         segmentedControl.heightAnchor.constraint(equalToConstant: segmentedControl.intrinsicContentSize.height).isActive = true
         return segmentedControl
@@ -34,7 +34,6 @@ class SearchViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         collectionView.register(
             SearchCollectionViewCell.self,
             forCellWithReuseIdentifier: SearchCollectionViewCell.reuseIdentifier
@@ -111,14 +110,14 @@ class SearchViewController: UIViewController {
     
     private func searchCollection() {
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
+            make.top.equalTo(segmentedControl.snp.bottom)
             make.left.right.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalToSuperview()
         }
     }
 
     @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        // Segment değiştiğinde yapılacak işlemleri buraya ekleyebilirsiniz
+        // Segment seçildiğinde yapılacak işlemler..
     }
 }
 
@@ -139,5 +138,9 @@ extension SearchViewController: SearchViewModelOutput {
 extension SearchViewController: SearchBarDelegateOutput {
     func searchTapped(searchKey: String) {
         viewModel?.getSearchList(searchKey: searchKey)
+    }
+    
+    func resetSearch() {
+        viewModel?.resetSearch()
     }
 }

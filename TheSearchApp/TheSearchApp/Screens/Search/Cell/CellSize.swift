@@ -37,10 +37,6 @@ struct SearchCellSize {
         return Constant.zero
     }
     
-    var headerSize: CGSize {
-        return CGSize(width: width, height: 40)
-    }
-    
     init(flowLayout: UICollectionViewFlowLayout, width: CGFloat) {
         self.flowLayout = flowLayout
         self.width = width

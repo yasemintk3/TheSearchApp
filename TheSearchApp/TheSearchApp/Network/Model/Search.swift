@@ -15,8 +15,8 @@ struct Search: Codable {
 
 // MARK: - Result
 struct SearchResult: Codable {
-    let wrapperType: WrapperType?
-    let kind: Kind?
+    let wrapperType: String?
+    let kind: String?
     let collectionID, trackID: Int?
     let artistName, collectionName, trackName, collectionCensoredName: String?
     let trackCensoredName: String?
@@ -26,20 +26,20 @@ struct SearchResult: Codable {
     let artworkUrl30, artworkUrl60, artworkUrl100: String?
     let collectionPrice, trackPrice, trackRentalPrice, collectionHDPrice: Double?
     let trackHDPrice, trackHDRentalPrice: Double?
-    let releaseDate: Date?
-    let collectionExplicitness, trackExplicitness: Explicitness?
+    let releaseDate: String?
+    let collectionExplicitness, trackExplicitness: String?
     let discCount, discNumber, trackCount, trackNumber: Int?
     let trackTimeMillis: Int?
-    let country: Country?
-    let currency: Currency?
+    let country: String?
+    let currency: String?
     let primaryGenreName: String?
-    let contentAdvisoryRating: ContentAdvisoryRating?
+    let contentAdvisoryRating: String?
     let shortDescription, longDescription: String?
     let hasITunesExtras: Bool?
     let artistID: Int?
     let artistViewURL: String?
     let isStreamable: Bool?
-    let collectionArtistName: CollectionArtistName?
+    let collectionArtistName: String?
 
     enum CodingKeys: String, CodingKey {
         case wrapperType, kind
@@ -60,39 +60,4 @@ struct SearchResult: Codable {
         case artistViewURL = "artistViewUrl"
         case isStreamable, collectionArtistName
     }
-}
-
-enum CollectionArtistName: String, Codable {
-    case jackJohnson = "Jack Johnson"
-    case tomRussell = "Tom Russell"
-    case variousArtists = "Various Artists"
-}
-
-enum Explicitness: String, Codable {
-    case explicit = "explicit"
-    case notExplicit = "notExplicit"
-}
-
-enum ContentAdvisoryRating: String, Codable {
-    case pg = "PG"
-    case pg13 = "PG-13"
-    case r = "R"
-    case unrated = "Unrated"
-}
-
-enum Country: String, Codable {
-    case usa = "USA"
-}
-
-enum Currency: String, Codable {
-    case usd = "USD"
-}
-
-enum Kind: String, Codable {
-    case featureMovie = "feature-movie"
-    case song = "song"
-}
-
-enum WrapperType: String, Codable {
-    case track = "track"
 }

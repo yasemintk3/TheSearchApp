@@ -32,20 +32,9 @@ class SearchCollectionViewCell: UICollectionViewCell {
         return image
     }()
     
-    private var collectionPrice: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 15)
-        label.textAlignment = .center
-        label.textColor = .black
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-    
     private var collectionName: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 15)
+        label.font = .systemFont(ofSize: 11)  //.boldSystemFont(ofSize: 11)
         label.textAlignment = .center
         label.textColor = .black
         label.numberOfLines = 0
@@ -54,11 +43,22 @@ class SearchCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    func configure(imageURL: URL, collectionPrice: String, collectionName: String) {
+    private var collectionPrice: UILabel = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 13)
+        label.textAlignment = .center
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
+    
+    func configure(imageURL: URL, collectionName: String, collectionPrice: String) {
         configureCell()
         configureImage(url: imageURL)
+        configureName(name: collectionName)
         configurePrice(price: collectionPrice)
-        configurePrice(price: collectionName)
     }
     
     private func configureCell() {
@@ -69,8 +69,8 @@ class SearchCollectionViewCell: UICollectionViewCell {
     private func configureUI() {
         contentView.addSubview(stackView)
         stackView.addArrangedSubview(image)
-        stackView.addArrangedSubview(collectionPrice)
         stackView.addArrangedSubview(collectionName)
+        stackView.addArrangedSubview(collectionPrice)
         
         self.layer.cornerRadius = Constant.viewCornerRadius
         self.layer.borderWidth = Constant.viewCornerLineWidth
@@ -85,15 +85,15 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
     
     private func configureImage(url: URL) {
-        image.widthAnchor.constraint(equalTo: image.heightAnchor, multiplier: 0.75).isActive = true
+        image.widthAnchor.constraint(equalTo: image.heightAnchor, multiplier: 0.85).isActive = true
         image.kf.setImage(with: url)
-    }
-    
-    private func configurePrice(price: String) {
-        collectionPrice.text = price
     }
     
     private func configureName(name: String) {
         collectionName.text = name
+    }
+    
+    private func configurePrice(price: String) {
+        collectionPrice.text = price + "$"
     }
 }
