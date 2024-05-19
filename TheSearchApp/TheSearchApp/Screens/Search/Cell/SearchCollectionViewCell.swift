@@ -19,6 +19,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     private lazy var stackView: UIStackView = {
        let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 4
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -34,7 +35,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     
     private var collectionName: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 11)  //.boldSystemFont(ofSize: 11)
+        label.font = .systemFont(ofSize: 11)
         label.textAlignment = .center
         label.textColor = .black
         label.numberOfLines = 0
@@ -45,7 +46,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     
     private var collectionPrice: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 13)
+        label.font = .boldSystemFont(ofSize: 11)
         label.textAlignment = .center
         label.textColor = .black
         label.numberOfLines = 0
@@ -54,11 +55,23 @@ class SearchCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    func configure(imageURL: URL, collectionName: String, collectionPrice: String) {
+    private var releaseDate: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 11)
+        label.textAlignment = .center
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
+    
+    func configure(imageURL: URL, collectionName: String, collectionPrice: String, releaseDate: String) {
         configureCell()
         configureImage(url: imageURL)
         configureName(name: collectionName)
         configurePrice(price: collectionPrice)
+        configureReleaseDate(date: releaseDate)
     }
     
     private func configureCell() {
@@ -71,6 +84,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         stackView.addArrangedSubview(image)
         stackView.addArrangedSubview(collectionName)
         stackView.addArrangedSubview(collectionPrice)
+        stackView.addArrangedSubview(releaseDate)
         
         self.layer.cornerRadius = Constant.viewCornerRadius
         self.layer.borderWidth = Constant.viewCornerLineWidth
@@ -85,7 +99,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
     
     private func configureImage(url: URL) {
-        image.widthAnchor.constraint(equalTo: image.heightAnchor, multiplier: 0.85).isActive = true
+        image.widthAnchor.constraint(equalTo: image.heightAnchor, multiplier: 0.9).isActive = true
         image.kf.setImage(with: url)
     }
     
@@ -95,5 +109,9 @@ class SearchCollectionViewCell: UICollectionViewCell {
     
     private func configurePrice(price: String) {
         collectionPrice.text = price + "$"
+    }
+    
+    private func configureReleaseDate(date: String) {
+        releaseDate.text = date
     }
 }

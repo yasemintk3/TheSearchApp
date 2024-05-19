@@ -29,6 +29,7 @@
 		475BA7CE2BE968DE007C57A7 /* Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475BA7CD2BE968DE007C57A7 /* Reuseable.swift */; };
 		475BA7D02BE9696A007C57A7 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475BA7CF2BE9696A007C57A7 /* UICollectionViewCell.swift */; };
 		475BA7D22BF54F27007C57A7 /* SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475BA7D12BF54F27007C57A7 /* SearchBarDelegate.swift */; };
+		476CF2A22BFA5C2400BEF65E /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CF2A12BFA5C2400BEF65E /* NetworkConstant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		475BA7CD2BE968DE007C57A7 /* Reuseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reuseable.swift; sourceTree = "<group>"; };
 		475BA7CF2BE9696A007C57A7 /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		475BA7D12BF54F27007C57A7 /* SearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarDelegate.swift; sourceTree = "<group>"; };
+		476CF2A12BFA5C2400BEF65E /* NetworkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				475BA7B32BE81364007C57A7 /* Constant.swift */,
+				476CF2A12BFA5C2400BEF65E /* NetworkConstant.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				475BA7B02BE81018007C57A7 /* HttpClient.swift in Sources */,
 				475BA7C92BE9575E007C57A7 /* SearchCollectionViewCell.swift in Sources */,
 				475BA7BA2BE81875007C57A7 /* SearchViewModel.swift in Sources */,
+				476CF2A22BFA5C2400BEF65E /* NetworkConstant.swift in Sources */,
 				475BA7852BE809AF007C57A7 /* SceneDelegate.swift in Sources */,
 				475BA7B42BE81364007C57A7 /* Constant.swift in Sources */,
 			);

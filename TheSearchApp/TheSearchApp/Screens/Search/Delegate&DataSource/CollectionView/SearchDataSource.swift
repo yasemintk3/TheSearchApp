@@ -31,7 +31,8 @@ extension SearchDataSource: UICollectionViewDataSource {
         
         cell.configure(imageURL: viewModel.getImage(by: indexPath),
                        collectionName: viewModel.getCollectionName(by: indexPath),
-                       collectionPrice: viewModel.getCollectionPrice(by: indexPath))
+                       collectionPrice: viewModel.getCollectionPrice(by: indexPath),
+                       releaseDate: viewModel.getReleaseDate(by: indexPath))
         
         return cell
     }

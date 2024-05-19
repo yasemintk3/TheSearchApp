@@ -28,7 +28,11 @@ class SearchCellViewModel {
     
     func getImage(by indexPath: IndexPath) -> URL {
         let url = URL(string: result[indexPath.row].artworkUrl100 ?? "")
-        return url ?? Constant.emptyImageURL
+        return url ?? Constants.emptyImageURL
+    }
+    
+    func getCollectionName(by indexPath: IndexPath) -> String {
+        result[indexPath.row].collectionName ?? ""
     }
     
     func getCollectionPrice(by indexPath: IndexPath) -> String {
@@ -37,7 +41,17 @@ class SearchCellViewModel {
         return String(describing: number)
     }
     
-    func getCollectionName(by indexPath: IndexPath) -> String {
-        result[indexPath.row].collectionName ?? ""
+    func getReleaseDate(by indexPath: IndexPath) -> String {
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        let dateString = result[indexPath.row].releaseDate ?? ""
+        if let date = dateFormatter.date(from: dateString) {
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            return dateFormatter.string(from: date)
+        } else {
+            return "01.01.1999"
+        }
     }
 }

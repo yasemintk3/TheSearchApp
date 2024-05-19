@@ -117,7 +117,25 @@ class SearchViewController: UIViewController {
     }
 
     @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        // Segment seçildiğinde yapılacak işlemler..
+        handleSegmentChange(index: sender.selectedSegmentIndex)
+    }
+    
+    private func handleSegmentChange(index: Int) {
+        
+        let searchKey = viewModel?.key
+        
+        switch index {
+        case 0:
+            viewModel?.getSegmentList(searchKey: searchKey!, segment: Constants.SegmentPathURL.movie.rawValue)
+        case 1:
+            viewModel?.getSegmentList(searchKey: searchKey!, segment: Constants.SegmentPathURL.music.rawValue)
+        case 2:
+            viewModel?.getSegmentList(searchKey: searchKey!, segment: Constants.SegmentPathURL.apps.rawValue)
+        case 3:
+            viewModel?.getSegmentList(searchKey: searchKey!, segment: Constants.SegmentPathURL.books.rawValue)
+        default:
+            break
+        }
     }
 }
 
@@ -138,9 +156,11 @@ extension SearchViewController: SearchViewModelOutput {
 extension SearchViewController: SearchBarDelegateOutput {
     func searchTapped(searchKey: String) {
         viewModel?.getSearchList(searchKey: searchKey)
+        segmentedControl.selectedSegmentIndex = UISegmentedControl.noSegment
     }
     
     func resetSearch() {
         viewModel?.resetSearch()
+        segmentedControl.selectedSegmentIndex = UISegmentedControl.noSegment
     }
 }
