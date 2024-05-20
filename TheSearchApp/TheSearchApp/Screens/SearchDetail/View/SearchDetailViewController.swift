@@ -11,6 +11,8 @@ import SnapKit
 
 class SearchDetailViewController: UIViewController {
     
+    // MARK: Properties
+    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +45,8 @@ class SearchDetailViewController: UIViewController {
     
     private var viewModel: SearchDetailViewModelProtocol?
     
+    // MARK: Init
+    
     init(viewModel: SearchDetailViewModelProtocol) {
         self.viewModel = viewModel
         
@@ -59,6 +63,8 @@ class SearchDetailViewController: UIViewController {
         configureUI()
         viewModel?.output = self
     }
+    
+    // MARK: Funcs
     
     private func configureUI() {
         view.backgroundColor = .white
@@ -90,6 +96,8 @@ class SearchDetailViewController: UIViewController {
         genreName.text = viewModel.getGenreName()
     }
 }
+
+// MARK: Extensions
 
 extension SearchDetailViewController: SearchDetailViewModelOutput {
     func updateState(_ state: SearchDetailViewModelState) {

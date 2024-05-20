@@ -16,6 +16,8 @@ class SearchCollectionViewCell: UICollectionViewCell {
         static let minOffSet: CGFloat = 8
     }
     
+    // MARK: Properties
+    
     private lazy var stackView: UIStackView = {
        let stackView = UIStackView()
         stackView.axis = .vertical
@@ -65,6 +67,8 @@ class SearchCollectionViewCell: UICollectionViewCell {
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
+    
+    // MARK: Funcs
     
     func configure(imageURL: URL, collectionName: String, collectionPrice: String, releaseDate: String) {
         configureCell()

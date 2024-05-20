@@ -10,7 +10,11 @@ import UIKit
 
 class SearchCellViewModel {
     
+    // MARK: Properties
+    
     private var result: [SearchResult]
+    
+    // MARK: Init
     
     init(result: [SearchResult]) {
         self.result = result
@@ -19,6 +23,8 @@ class SearchCellViewModel {
     var listCount: Int {
         result.count
     }
+    
+    // MARK: Funcs
     
     func getImage(by indexPath: IndexPath) -> URL {
         let url = URL(string: result[indexPath.row].artworkUrl100 ?? "")

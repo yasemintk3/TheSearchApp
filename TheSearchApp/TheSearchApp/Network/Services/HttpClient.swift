@@ -16,11 +16,17 @@ protocol HttpClientProtocol: AnyObject {
 
 class HttpClient: HttpClientProtocol {
     
+    // MARK: Properties
+    
     private var alamofireSession: Session
+    
+    // MARK: Init
     
     init(alamofireSession: Session) {
         self.alamofireSession = alamofireSession
     }
+    
+    // MARK: Funcs
     
     func fetch<T>(url: URL, completion: @escaping resultClosure<T>) where T : Decodable, T : Encodable {
         

@@ -27,6 +27,8 @@ protocol SearchViewModelProtocol {
 }
 
 final class SearchViewModel: SearchViewModelProtocol {
+    
+    // MARK: Properties
 
     weak var output: SearchViewModelOutput?
     private var httpClient: HttpClientProtocol?
@@ -34,10 +36,14 @@ final class SearchViewModel: SearchViewModelProtocol {
     private var searchResult: [SearchResult] = []
     private var keyURL: String = ""
     
+    // MARK: Init
+    
     init(httpClient: HttpClientProtocol, appCoordinator: AppCoordinator) {
         self.httpClient = httpClient
         self.appCoordinator = appCoordinator
     }
+    
+    // MARK: Funcs
     
     func getSearchList(searchKey: String) {
         

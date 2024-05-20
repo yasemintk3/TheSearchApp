@@ -13,14 +13,20 @@ protocol SearchDelegateOutput: AnyObject {
 
 class SearchDelegate: NSObject {
     
+    // MARK: Properties
+    
     private var viewModel: SearchCellViewModel?
     private weak var output: SearchDelegateOutput?
+    
+    // MARK: Funcs
     
     func update(cellViewModel: SearchCellViewModel, output: SearchDelegateOutput) {
         self.viewModel = cellViewModel
         self.output = output
     }
 }
+
+// MARK: Extensions
 
 extension SearchDelegate: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     

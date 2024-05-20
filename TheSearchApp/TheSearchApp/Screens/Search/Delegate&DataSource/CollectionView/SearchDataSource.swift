@@ -9,12 +9,18 @@ import UIKit
 
 final class SearchDataSource: NSObject {
     
+    // MARK: Properties
+    
     private var viewModel: SearchCellViewModel?
+    
+    // MARK: Funcs
     
     func update(cellViewModel: SearchCellViewModel) {
         self.viewModel = cellViewModel
     }
 }
+
+// MARK: Extensions
 
 extension SearchDataSource: UICollectionViewDataSource {
     

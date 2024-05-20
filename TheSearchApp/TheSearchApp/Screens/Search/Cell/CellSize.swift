@@ -18,6 +18,8 @@ struct SearchCellSize {
         static let zero: CGSize = CGSize(width: UIScreen.main.bounds.width, height: 0)
     }
     
+    // MARK: Properties
+    
     private let flowLayout: UICollectionViewFlowLayout
     private let width: CGFloat
     private var space: CGFloat {
@@ -39,12 +41,16 @@ struct SearchCellSize {
         return Constant.zero
     }
     
+    // MARK: Init
+    
     init(flowLayout: UICollectionViewFlowLayout, width: CGFloat) {
         self.flowLayout = flowLayout
         self.width = width
         
         setSpacing()
     }
+    
+    // MARK: Funcs
 
     private func setSpacing() {
         flowLayout.minimumLineSpacing = Constant.minimumLineSpacing

@@ -14,12 +14,18 @@ protocol SearchBarDelegateOutput: AnyObject {
 
 class SearchBarDelegate: NSObject {
     
+    // MARK: Properties
+    
     weak var output: SearchBarDelegateOutput?
+    
+    // MARK: Init
     
     init(output: SearchBarDelegateOutput) {
         self.output = output
     }
 }
+
+// MARK: Extensions
 
 extension SearchBarDelegate: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

@@ -14,6 +14,8 @@ class SearchViewController: UIViewController {
         static let searchHeight: CGFloat = 40
     }
     
+    // MARK: Properties
+    
     private lazy var searchBar: UISearchController = {
         let search = UISearchController()
         search.searchBar.placeholder = "Search"
@@ -47,6 +49,8 @@ class SearchViewController: UIViewController {
     private var dataSource: SearchDataSource?
     private var searchBarDelegate: SearchBarDelegate?
     
+    // MARK: Init
+    
     init(viewModel: SearchViewModel,
          delegate: SearchDelegate,
          dataSource: SearchDataSource) {
@@ -69,6 +73,8 @@ class SearchViewController: UIViewController {
         
         configureUI()
     }
+    
+    // MARK: Funcs
     
     private func configureUI() {
         view.backgroundColor = .white
@@ -135,6 +141,8 @@ class SearchViewController: UIViewController {
         }
     }
 }
+
+// MARK: Extensions
 
 extension SearchViewController: SearchViewModelOutput {
     func updateView(state: SearchListViewModelState) {

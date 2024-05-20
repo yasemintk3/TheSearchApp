@@ -25,11 +25,15 @@ protocol SearchDetailViewModelOutput: AnyObject {
 }
 
 class SearchDetailViewModel: SearchDetailViewModelProtocol {
+    
+    // MARK: Properties
 
     weak var output: SearchDetailViewModelOutput?
     private var detail: [SearchDetailResult]?
     private var id: Int
     private var httpClient: HttpClientProtocol
+    
+    // MARK: Init
     
     init(id: Int, httpClient: HttpClientProtocol) {
         self.id = id
@@ -37,6 +41,8 @@ class SearchDetailViewModel: SearchDetailViewModelProtocol {
         
         self.getDetailPage()
     }
+    
+    // MARK: Funcs
     
     private func getDetailPage() {
         
