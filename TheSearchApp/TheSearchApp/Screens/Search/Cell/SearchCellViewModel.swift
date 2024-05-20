@@ -54,4 +54,9 @@ class SearchCellViewModel {
             return "01.01.1999"
         }
     }
+    
+    func getID(indexPath: IndexPath) -> Int {
+        let id = result[indexPath.row].artistID ?? 0
+        return id
+    }
 }

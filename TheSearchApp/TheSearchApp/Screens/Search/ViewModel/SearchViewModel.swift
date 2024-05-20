@@ -20,11 +20,13 @@ protocol SearchViewModelProtocol {
     func getSearchList(searchKey: String)
     func resetSearch()
     func getSegmentList(searchKey: String, segment: String)
+    func goToDetail(id: Int)
     var output: SearchViewModelOutput? { get set }
 }
 
-final class SearchViewModel: SearchViewModelProtocol {
 
+final class SearchViewModel: SearchViewModelProtocol {
+    
     var httpClient: HttpClientProtocol?
     var appCoordinator: AppCoordinator?
     var output: SearchViewModelOutput?
@@ -76,5 +78,9 @@ final class SearchViewModel: SearchViewModelProtocol {
                 return print(error.localizedDescription)
             }
         })
+    }
+    
+    func goToDetail(id: Int) {
+        appCoordinator?.eventOccurred(id: id)
     }
 }

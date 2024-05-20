@@ -30,6 +30,10 @@
 		475BA7D02BE9696A007C57A7 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475BA7CF2BE9696A007C57A7 /* UICollectionViewCell.swift */; };
 		475BA7D22BF54F27007C57A7 /* SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475BA7D12BF54F27007C57A7 /* SearchBarDelegate.swift */; };
 		476CF2A22BFA5C2400BEF65E /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CF2A12BFA5C2400BEF65E /* NetworkConstant.swift */; };
+		476CF2A42BFB45B700BEF65E /* SearchDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CF2A32BFB45B700BEF65E /* SearchDetailBuilder.swift */; };
+		476CF2A62BFB45E000BEF65E /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CF2A52BFB45E000BEF65E /* SearchDetailViewController.swift */; };
+		476CF2A82BFB45F700BEF65E /* SearchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CF2A72BFB45F700BEF65E /* SearchDetailViewModel.swift */; };
+		476CF2AA2BFB466300BEF65E /* SearchDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CF2A92BFB466300BEF65E /* SearchDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +59,10 @@
 		475BA7CF2BE9696A007C57A7 /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		475BA7D12BF54F27007C57A7 /* SearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarDelegate.swift; sourceTree = "<group>"; };
 		476CF2A12BFA5C2400BEF65E /* NetworkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
+		476CF2A32BFB45B700BEF65E /* SearchDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailBuilder.swift; sourceTree = "<group>"; };
+		476CF2A52BFB45E000BEF65E /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
+		476CF2A72BFB45F700BEF65E /* SearchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewModel.swift; sourceTree = "<group>"; };
+		476CF2A92BFB466300BEF65E /* SearchDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +188,7 @@
 		475BA7A42BE80D4D007C57A7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				476CF2A72BFB45F700BEF65E /* SearchDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -187,6 +196,7 @@
 		475BA7A52BE80D55007C57A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				476CF2A52BFB45E000BEF65E /* SearchDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,6 +204,7 @@
 		475BA7A62BE80D5A007C57A7 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
+				476CF2A32BFB45B700BEF65E /* SearchDetailBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -245,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				475BA7B12BE8132C007C57A7 /* Search.swift */,
+				476CF2A92BFB466300BEF65E /* SearchDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -369,13 +381,17 @@
 				475BA7BF2BE818FA007C57A7 /* SearchDataSource.swift in Sources */,
 				475BA7832BE809AF007C57A7 /* AppDelegate.swift in Sources */,
 				475BA7BD2BE818E8007C57A7 /* SearchDelegate.swift in Sources */,
+				476CF2A62BFB45E000BEF65E /* SearchDetailViewController.swift in Sources */,
 				475BA7C72BE91F38007C57A7 /* CellSize.swift in Sources */,
 				475BA7B82BE81801007C57A7 /* SearchViewController.swift in Sources */,
+				476CF2A82BFB45F700BEF65E /* SearchDetailViewModel.swift in Sources */,
 				475BA7CB2BE95840007C57A7 /* SearchCellViewModel.swift in Sources */,
 				475BA7B22BE8132C007C57A7 /* Search.swift in Sources */,
+				476CF2AA2BFB466300BEF65E /* SearchDetail.swift in Sources */,
 				475BA7B62BE8177C007C57A7 /* SearchBuilder.swift in Sources */,
 				475BA7D02BE9696A007C57A7 /* UICollectionViewCell.swift in Sources */,
 				475BA7B02BE81018007C57A7 /* HttpClient.swift in Sources */,
+				476CF2A42BFB45B700BEF65E /* SearchDetailBuilder.swift in Sources */,
 				475BA7C92BE9575E007C57A7 /* SearchCollectionViewCell.swift in Sources */,
 				475BA7BA2BE81875007C57A7 /* SearchViewModel.swift in Sources */,
 				476CF2A22BFA5C2400BEF65E /* NetworkConstant.swift in Sources */,

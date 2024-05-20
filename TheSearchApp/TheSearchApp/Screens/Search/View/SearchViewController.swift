@@ -104,7 +104,7 @@ class SearchViewController: UIViewController {
     private func segmentedController() {
         segmentedControl.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.left.right.equalToSuperview()
+            make.left.right.equalToSuperview().offset(4)
         }
     }
     
@@ -144,7 +144,7 @@ extension SearchViewController: SearchViewModelOutput {
     func updateView(state: SearchListViewModelState) {
         switch state {
         case .showSearchList(let searchCellViewModel):
-            delegate?.update(cellViewModel: searchCellViewModel)
+            delegate?.update(cellViewModel: searchCellViewModel, output: self)
             dataSource?.update(cellViewModel: searchCellViewModel)
             collectionView.reloadData()
         case .showError(let error):
@@ -162,5 +162,12 @@ extension SearchViewController: SearchBarDelegateOutput {
     func resetSearch() {
         viewModel?.resetSearch()
         segmentedControl.selectedSegmentIndex = UISegmentedControl.noSegment
+    }
+}
+
+extension SearchViewController: SearchDelegateOutput {
+
+    func didSelectItem(id: Int) {
+        viewModel?.goToDetail(id: id)
     }
 }

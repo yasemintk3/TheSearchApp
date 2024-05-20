@@ -7,13 +7,19 @@
 
 import UIKit
 
+protocol SearchDelegateOutput: AnyObject {
+    func didSelectItem(id: Int)
+}
+
 class SearchDelegate: NSObject {
     
     private var viewModel: SearchCellViewModel?
     private var isSearchResult: Bool?
+    private weak var output: SearchDelegateOutput?
     
-    func update(cellViewModel: SearchCellViewModel) {
+    func update(cellViewModel: SearchCellViewModel, output: SearchDelegateOutput) {
         self.viewModel = cellViewModel
+        self.output = output
         self.isSearchResult = cellViewModel.isSearchResult()
     }
 }
@@ -28,5 +34,10 @@ extension SearchDelegate: UICollectionViewDelegate, UICollectionViewDelegateFlow
             return size.estimatedItemSize
         }
         return .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let viewModel = viewModel else {return}
+        output?.didSelectItem(id: viewModel.getID(indexPath: indexPath))
     }
 }

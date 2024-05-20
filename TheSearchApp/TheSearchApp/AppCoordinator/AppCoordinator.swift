@@ -11,10 +11,11 @@ import UIKit
 protocol Coordinator: AnyObject {
     var navigationController: UINavigationController? { get set }
     func start()
+    func eventOccurred(id: Int)
 }
 
 class AppCoordinator: Coordinator {
-    
+
     var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController) {
@@ -24,5 +25,9 @@ class AppCoordinator: Coordinator {
     func start() {
         let vc = SearchBuilder.build(appCoordinator: self)
         navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    func eventOccurred(id: Int) {
+        navigationController?.pushViewController(SearchDetailBuilder.build(id: id), animated: true)
     }
 }
