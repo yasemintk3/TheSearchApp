@@ -26,10 +26,10 @@ protocol SearchDetailViewModelOutput: AnyObject {
 
 class SearchDetailViewModel: SearchDetailViewModelProtocol {
 
-    var detail: [SearchDetailResult]?
+    weak var output: SearchDetailViewModelOutput?
+    private var detail: [SearchDetailResult]?
     private var id: Int
     private var httpClient: HttpClientProtocol
-    var output: SearchDetailViewModelOutput?
     
     init(id: Int, httpClient: HttpClientProtocol) {
         self.id = id

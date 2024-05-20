@@ -10,11 +10,9 @@ import UIKit
 final class SearchDataSource: NSObject {
     
     private var viewModel: SearchCellViewModel?
-    private var isSearchResult: Bool?
     
     func update(cellViewModel: SearchCellViewModel) {
         self.viewModel = cellViewModel
-        self.isSearchResult = cellViewModel.isSearchResult()
     }
 }
 

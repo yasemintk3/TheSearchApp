@@ -21,7 +21,9 @@ struct SearchCellSize {
     private let flowLayout: UICollectionViewFlowLayout
     private let width: CGFloat
     private var space: CGFloat {
-        return flowLayout.minimumLineSpacing + (flowLayout.collectionView?.contentInset.left ?? 0) + (flowLayout.collectionView?.contentInset.right ?? 0)
+        return flowLayout.minimumLineSpacing +
+        (flowLayout.collectionView?.contentInset.left ?? 0) +
+        (flowLayout.collectionView?.contentInset.right ?? 0)
     }
     
     var contentInset: UIEdgeInsets {

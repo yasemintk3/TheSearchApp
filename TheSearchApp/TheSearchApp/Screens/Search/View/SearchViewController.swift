@@ -98,7 +98,6 @@ class SearchViewController: UIViewController {
         
         segmentedController()
         searchCollection()
-    
     }
     
     private func segmentedController() {
@@ -122,17 +121,15 @@ class SearchViewController: UIViewController {
     
     private func handleSegmentChange(index: Int) {
         
-        let searchKey = viewModel?.key
-        
         switch index {
         case 0:
-            viewModel?.getSegmentList(searchKey: searchKey!, segment: Constants.SegmentPathURL.movie.rawValue)
+            viewModel?.getSegmentList(searchKey: (viewModel?.getKeyURL())!, segment: Constants.SegmentPathURL.movie.rawValue)
         case 1:
-            viewModel?.getSegmentList(searchKey: searchKey!, segment: Constants.SegmentPathURL.music.rawValue)
+            viewModel?.getSegmentList(searchKey: (viewModel?.getKeyURL())!, segment: Constants.SegmentPathURL.music.rawValue)
         case 2:
-            viewModel?.getSegmentList(searchKey: searchKey!, segment: Constants.SegmentPathURL.apps.rawValue)
+            viewModel?.getSegmentList(searchKey: (viewModel?.getKeyURL())!, segment: Constants.SegmentPathURL.apps.rawValue)
         case 3:
-            viewModel?.getSegmentList(searchKey: searchKey!, segment: Constants.SegmentPathURL.books.rawValue)
+            viewModel?.getSegmentList(searchKey: (viewModel?.getKeyURL())!, segment: Constants.SegmentPathURL.books.rawValue)
         default:
             break
         }
@@ -140,7 +137,6 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: SearchViewModelOutput {
-    
     func updateView(state: SearchListViewModelState) {
         switch state {
         case .showSearchList(let searchCellViewModel):
@@ -166,7 +162,6 @@ extension SearchViewController: SearchBarDelegateOutput {
 }
 
 extension SearchViewController: SearchDelegateOutput {
-
     func didSelectItem(id: Int) {
         viewModel?.goToDetail(id: id)
     }

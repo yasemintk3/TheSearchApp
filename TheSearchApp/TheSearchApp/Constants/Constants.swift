@@ -1,5 +1,5 @@
 //
-//  Constant.swift
+//  Constants.swift
 //  TheSearchApp
 //
 //  Created by Yasemin TOK on 5.05.2024.

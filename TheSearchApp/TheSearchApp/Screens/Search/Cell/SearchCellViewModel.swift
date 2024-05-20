@@ -10,16 +10,10 @@ import UIKit
 
 class SearchCellViewModel {
     
-    private var isSearch: Bool
     private var result: [SearchResult]
     
-    init(result: [SearchResult], isSearch: Bool) {
+    init(result: [SearchResult]) {
         self.result = result
-        self.isSearch = isSearch
-    }
-    
-    func isSearchResult() -> Bool {
-        return isSearch
     }
     
     var listCount: Int {
@@ -56,7 +50,7 @@ class SearchCellViewModel {
     }
     
     func getID(indexPath: IndexPath) -> Int {
-        let id = result[indexPath.row].artistID ?? 0
+        guard let id = result[indexPath.row].artistID else {return 0}
         return id
     }
 }

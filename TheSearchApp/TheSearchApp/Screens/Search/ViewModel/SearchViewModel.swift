@@ -17,21 +17,22 @@ protocol SearchViewModelOutput: AnyObject {
 }
 
 protocol SearchViewModelProtocol {
+    var output: SearchViewModelOutput? { get set }
+    
     func getSearchList(searchKey: String)
     func resetSearch()
     func getSegmentList(searchKey: String, segment: String)
     func goToDetail(id: Int)
-    var output: SearchViewModelOutput? { get set }
+    func getKeyURL() -> String
 }
 
-
 final class SearchViewModel: SearchViewModelProtocol {
-    
-    var httpClient: HttpClientProtocol?
-    var appCoordinator: AppCoordinator?
-    var output: SearchViewModelOutput?
+
+    weak var output: SearchViewModelOutput?
+    private var httpClient: HttpClientProtocol?
+    private var appCoordinator: AppCoordinator?
     private var searchResult: [SearchResult] = []
-    var key: String = ""
+    private var keyURL: String = ""
     
     init(httpClient: HttpClientProtocol, appCoordinator: AppCoordinator) {
         self.httpClient = httpClient
@@ -47,20 +48,20 @@ final class SearchViewModel: SearchViewModelProtocol {
                 guard let results = response.results else {
                     return print("error")
                 }
-                let viewModel = SearchCellViewModel(result: results, isSearch: true)
+                let viewModel = SearchCellViewModel(result: results)
                 self.output?.updateView(state: .showSearchList(viewModel))
             case .failure(let error):
                 return print(error.localizedDescription)
             }
         })
         
-        key = searchKey
+        keyURL = searchKey
     }
     
     func resetSearch() {
-        let viewModel = SearchCellViewModel(result: self.searchResult, isSearch: false)
+        let viewModel = SearchCellViewModel(result: self.searchResult)
         output?.updateView(state: .showSearchList(viewModel))
-        key = ""
+        keyURL = ""
     }
     
     func getSegmentList(searchKey: String, segment: String) {
@@ -72,12 +73,16 @@ final class SearchViewModel: SearchViewModelProtocol {
                 guard let results = response.results else {
                     return print("error")
                 }
-                let viewModel = SearchCellViewModel(result: results, isSearch: true)
+                let viewModel = SearchCellViewModel(result: results)
                 self.output?.updateView(state: .showSearchList(viewModel))
             case .failure(let error):
                 return print(error.localizedDescription)
             }
         })
+    }
+    
+    func getKeyURL() -> String {
+        return keyURL
     }
     
     func goToDetail(id: Int) {

@@ -20,21 +20,21 @@ class SearchDetailViewController: UIViewController {
         return stackView
     }()
     
-    private var artistType: UILabel = {
+    private lazy var artistType: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 16)
         label.textColor = .black
         return label
     }()
     
-    private var artistName: UILabel = {
+    private lazy var artistName: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 16)
         label.textColor = .black
         return label
     }()
     
-    private var genreName: UILabel = {
+    private lazy var genreName: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 16)
         label.textColor = .black
@@ -89,7 +89,6 @@ class SearchDetailViewController: UIViewController {
         artistName.text = viewModel.getArtistName()
         genreName.text = viewModel.getGenreName()
     }
-    
 }
 
 extension SearchDetailViewController: SearchDetailViewModelOutput {

@@ -1,5 +1,5 @@
 //
-//  NetworkConstant.swift
+//  NetworkConstants.swift
 //  TheSearchApp
 //
 //  Created by Yasemin TOK on 19.05.2024.

@@ -24,7 +24,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
     
-    private var image: UIImageView = {
+    private lazy var image: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleToFill
         image.layer.masksToBounds = true
@@ -33,7 +33,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         return image
     }()
     
-    private var collectionName: UILabel = {
+    private lazy var collectionName: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 11)
         label.textAlignment = .center
@@ -44,7 +44,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private var collectionPrice: UILabel = {
+    private lazy var collectionPrice: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 11)
         label.textAlignment = .center
@@ -55,7 +55,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private var releaseDate: UILabel = {
+    private lazy var releaseDate: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 11)
         label.textAlignment = .center

@@ -22,7 +22,6 @@ class SearchBarDelegate: NSObject {
 }
 
 extension SearchBarDelegate: UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     
         guard let searchText = searchBar.text else { return }
@@ -33,6 +32,10 @@ extension SearchBarDelegate: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        output?.resetSearch()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         output?.resetSearch()
     }
 }

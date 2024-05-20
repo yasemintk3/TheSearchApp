@@ -14,13 +14,11 @@ protocol SearchDelegateOutput: AnyObject {
 class SearchDelegate: NSObject {
     
     private var viewModel: SearchCellViewModel?
-    private var isSearchResult: Bool?
     private weak var output: SearchDelegateOutput?
     
     func update(cellViewModel: SearchCellViewModel, output: SearchDelegateOutput) {
         self.viewModel = cellViewModel
         self.output = output
-        self.isSearchResult = cellViewModel.isSearchResult()
     }
 }
 
