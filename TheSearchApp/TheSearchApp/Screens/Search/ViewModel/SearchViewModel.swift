@@ -21,9 +21,9 @@ protocol SearchViewModelProtocol {
     
     func getSearchList(searchKey: String)
     func resetSearch()
-    func getSegmentList(searchKey: String, segment: String)
+    func getSegmentList(searchKey: String)
     func goToDetail(id: Int)
-    func getKeyURL() -> String
+    func getKeyURL(index: Int) -> String
 }
 
 final class SearchViewModel: SearchViewModelProtocol {
@@ -35,6 +35,7 @@ final class SearchViewModel: SearchViewModelProtocol {
     private var appCoordinator: AppCoordinator?
     private var searchResult: [SearchResult] = []
     private var keyURL: String = ""
+    private var segment: String = ""
     
     // MARK: Init
     
@@ -70,7 +71,7 @@ final class SearchViewModel: SearchViewModelProtocol {
         keyURL = ""
     }
     
-    func getSegmentList(searchKey: String, segment: String) {
+    func getSegmentList(searchKey: String) {
         
         httpClient?.fetch(url: Constants.generateSegmentURL(searchKey: searchKey, segment: segment)!, completion: { (result: Result<Search, Error>) in
             
@@ -87,8 +88,25 @@ final class SearchViewModel: SearchViewModelProtocol {
         })
     }
     
-    func getKeyURL() -> String {
-        return keyURL
+    func getKeyURL(index: Int) -> String  {
+        
+        switch index {
+        case 0:
+            segment = Constants.SegmentPathURL.movie.rawValue
+            return keyURL
+        case 1:
+            segment = Constants.SegmentPathURL.music.rawValue
+            return keyURL
+        case 2:
+            segment = Constants.SegmentPathURL.apps.rawValue
+            return keyURL
+        case 3:
+            segment = Constants.SegmentPathURL.books.rawValue
+            return keyURL
+        default:
+            break
+        }
+        return ""
     }
     
     func goToDetail(id: Int) {

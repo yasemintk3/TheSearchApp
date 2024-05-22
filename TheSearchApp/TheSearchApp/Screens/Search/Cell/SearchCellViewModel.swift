@@ -56,7 +56,7 @@ class SearchCellViewModel {
     }
     
     func getID(indexPath: IndexPath) -> Int {
-        guard let id = result[indexPath.row].artistID else {return 0}
+        guard let id = result[indexPath.row].artistID else { return 0 }
         return id
     }
 }

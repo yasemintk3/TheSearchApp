@@ -34,6 +34,7 @@
 		476CF2A62BFB45E000BEF65E /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CF2A52BFB45E000BEF65E /* SearchDetailViewController.swift */; };
 		476CF2A82BFB45F700BEF65E /* SearchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CF2A72BFB45F700BEF65E /* SearchDetailViewModel.swift */; };
 		476CF2AA2BFB466300BEF65E /* SearchDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CF2A92BFB466300BEF65E /* SearchDetail.swift */; };
+		476CF2AC2BFE866200BEF65E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476CF2AB2BFE866200BEF65E /* Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		476CF2A52BFB45E000BEF65E /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		476CF2A72BFB45F700BEF65E /* SearchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewModel.swift; sourceTree = "<group>"; };
 		476CF2A92BFB466300BEF65E /* SearchDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetail.swift; sourceTree = "<group>"; };
+		476CF2AB2BFE866200BEF65E /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +107,6 @@
 				475BA7A02BE80CC0007C57A7 /* Network */,
 				475BA7A12BE80CCC007C57A7 /* Screens */,
 				475BA79E2BE80C48007C57A7 /* Resources */,
-				475BA7902BE809B3007C57A7 /* Info.plist */,
 			);
 			path = TheSearchApp;
 			sourceTree = "<group>";
@@ -130,6 +131,7 @@
 		475BA79E2BE80C48007C57A7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				475BA7902BE809B3007C57A7 /* Info.plist */,
 				475BA78B2BE809B3007C57A7 /* Assets.xcassets */,
 				475BA78D2BE809B3007C57A7 /* LaunchScreen.storyboard */,
 			);
@@ -291,6 +293,7 @@
 			children = (
 				475BA7CD2BE968DE007C57A7 /* Reuseable.swift */,
 				475BA7CF2BE9696A007C57A7 /* UICollectionViewCell.swift */,
+				476CF2AB2BFE866200BEF65E /* Array.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				475BA7BF2BE818FA007C57A7 /* SearchDataSource.swift in Sources */,
 				475BA7832BE809AF007C57A7 /* AppDelegate.swift in Sources */,
 				475BA7BD2BE818E8007C57A7 /* SearchDelegate.swift in Sources */,
+				476CF2AC2BFE866200BEF65E /* Array.swift in Sources */,
 				476CF2A62BFB45E000BEF65E /* SearchDetailViewController.swift in Sources */,
 				475BA7C72BE91F38007C57A7 /* CellSize.swift in Sources */,
 				475BA7B82BE81801007C57A7 /* SearchViewController.swift in Sources */,
@@ -537,7 +541,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VM33FHMWX5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TheSearchApp/Info.plist;
+				INFOPLIST_FILE = TheSearchApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -564,7 +568,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VM33FHMWX5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TheSearchApp/Info.plist;
+				INFOPLIST_FILE = TheSearchApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

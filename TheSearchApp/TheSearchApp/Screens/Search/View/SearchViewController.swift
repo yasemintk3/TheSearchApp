@@ -126,19 +126,7 @@ class SearchViewController: UIViewController {
     }
     
     private func handleSegmentChange(index: Int) {
-        
-        switch index {
-        case 0:
-            viewModel?.getSegmentList(searchKey: (viewModel?.getKeyURL())!, segment: Constants.SegmentPathURL.movie.rawValue)
-        case 1:
-            viewModel?.getSegmentList(searchKey: (viewModel?.getKeyURL())!, segment: Constants.SegmentPathURL.music.rawValue)
-        case 2:
-            viewModel?.getSegmentList(searchKey: (viewModel?.getKeyURL())!, segment: Constants.SegmentPathURL.apps.rawValue)
-        case 3:
-            viewModel?.getSegmentList(searchKey: (viewModel?.getKeyURL())!, segment: Constants.SegmentPathURL.books.rawValue)
-        default:
-            break
-        }
+        viewModel?.getSegmentList(searchKey: (viewModel?.getKeyURL(index: index))!)
     }
 }
 

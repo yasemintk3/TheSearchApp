@@ -59,14 +59,14 @@ class SearchDetailViewModel: SearchDetailViewModelProtocol {
     }
     
     func getArtistType() -> String {
-        detail?[0].artistType ?? ""
+        detail?[safe: 0]?.artistType ?? ""
     }
     
     func getArtistName() -> String {
-        detail?[0].artistName ?? ""
+        detail?[safe: 0]?.artistName ?? ""
     }
     
     func getGenreName() -> String {
-        detail?[0].primaryGenreName ?? ""
+        detail?[safe: 0]?.primaryGenreName ?? ""
     }
 }
